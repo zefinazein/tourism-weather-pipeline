@@ -33,8 +33,8 @@ This repository is an **individual, code-first reimplementation** of a group aca
 | Data quality | Manual Filter Rows steps | dbt tests (schema + custom) |
 | Orchestration | Windows Task Scheduler | Airflow (Astro CLI + Cosmos) |
 
-## Architecture
-
+## 🖾 Architecture 🖾
+<img width="1109" height="407" alt="image" src="https://github.com/user-attachments/assets/48aa0904-be32-4e85-935c-9a02ce23d37a" />
 
 ## ✰ Star schema ✰
 
