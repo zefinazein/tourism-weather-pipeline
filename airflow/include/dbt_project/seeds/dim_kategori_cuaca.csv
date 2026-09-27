@@ -1,0 +1,5 @@
+id_kategori,kategori,range_hujan,min_mm,max_mm
+1,Kering,< 100 mm/bulan,0,100
+2,Normal,100-200 mm/bulan,100,200
+3,Basah,200-400 mm/bulan,200,400
+4,Sangat Basah,> 400 mm/bulan,400,9999

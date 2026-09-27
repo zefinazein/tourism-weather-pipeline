@@ -1,0 +1,8 @@
+version: 2
+sources:
+  - name: raw
+    dataset: raw
+    tables:
+      - name: raw_bps_kunjungan
+      - name: raw_openmeteo_cuaca
+      - name: raw_google_trends

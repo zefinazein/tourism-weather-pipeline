@@ -1,0 +1,21 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Credentials
+.env
+keys/
+airflow/.env
+
+# Logs
+logs/
+
+# dbt
+**/dbt_project/target/
+**/dbt_project/dbt_packages
+
+# Astro / Airflow
+airflow/.astro/
+airflow/airflow_settings.yaml
+
