@@ -9,7 +9,7 @@
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458?logo=pandas&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Local%20Runtime-2496ED?logo=docker&logoColor=white)
 
-An end-to-end data engineering pipeline correlating seasonal weather patterns and tourism demand across five Indonesian provinces (2023–2025), rebuilt individually using a code-first stack: **Python, BigQuery, dbt, and Airflow (Astronomer + Cosmos)**.
+An end-to-end data engineering pipeline correlating seasonal weather patterns and tourism demand across five Indonesian provinces (2023-2025), rebuilt individually using a code-first stack: **Python, BigQuery, dbt, and Airflow (Astronomer + Cosmos)**.
 
 ## 「 Background 」
 
@@ -23,7 +23,7 @@ for five provinces spanning four major island groups: **Bali, DI Yogyakarta, Nus
 
 ## 𖠋 An individual rebuild 𖠋
 
-This repository is an **individual, code-first reimplementation** of a group academic project originally built with Pentaho Data Integration (GUI-based ETL) and PostgreSQL. The original version demonstrated the data engineering lifecycle through visual, low-code transformations; this rebuild demonstrates the same lifecycle using tooling more representative of current industry practice. Python for extraction, BigQuery as the cloud warehouse, dbt for SQL-based transformation and testing, and Airflow for orchestration.
+This repository is an **individual, code-first reimplementation** of a group academic project ([tourism-weather-etl](https://github.com/zefinazein/tourism-weather-etl)) originally built with Pentaho Data Integration (GUI-based ETL) and PostgreSQL. The original version demonstrated the data engineering lifecycle through visual, low-code transformations; this rebuild demonstrates the same lifecycle using tooling more representative of current industry practice. Python for extraction, BigQuery as the cloud warehouse, dbt for SQL-based transformation and testing, and Airflow for orchestration.
 
 | Layer | Original (group project) | This rebuild |
 |---|---|---|
@@ -114,19 +114,19 @@ tourism-weather-pipeline/
 
 ## ❯❯❯❯ Data pipeline ❯❯❯❯
 
-1. **Extract** — `fetch_openmeteo.py` and `fetch_google_trends.py` pull from their respective APIs; `import_bps.py` consolidates dozens of heterogeneous BPS dynamic-table exports (two differing table structures) into one clean monthly province-level file
-2. **Load** — `load_to_bigquery.py` writes raw extracts into BigQuery's `raw` dataset, unfiltered, preserving an audit trail
-3. **Staging** (`dbt run --select staging`) — per-source cleaning, filtering, and standardizing province names
-4. **Intermediate** — a single master join across BPS, weather, and trends staging models
-5. **Marts** — star schema: one fact table (`fact_kunjungan_pariwisata`) and three dimensions (`dim_waktu`, `dim_provinsi`, `dim_kategori_cuaca`)
-6. **Test** (`dbt test`) — not-null, accepted-range, referential integrity, and duplicate checks against the final fact table
-7. **Orchestrate** — an Airflow DAG (`tourism_weather_pipeline`) runs extraction, load, and the full dbt project monthly
+1. **Extract**: `fetch_openmeteo.py` and `fetch_google_trends.py` pull from their respective APIs; `import_bps.py` consolidates dozens of heterogeneous BPS dynamic-table exports (two differing table structures) into one clean monthly province-level file
+2. **Load**: `load_to_bigquery.py` writes raw extracts into BigQuery's `raw` dataset, unfiltered, preserving an audit trail
+3. **Staging** (`dbt run --select staging`): per-source cleaning, filtering, and standardizing province names
+4. **Intermediate**: a single master join across BPS, weather, and trends staging models
+5. **Marts**: star schema: one fact table (`fact_kunjungan_pariwisata`) and three dimensions (`dim_waktu`, `dim_provinsi`, `dim_kategori_cuaca`)
+6. **Test** (`dbt test`): not-null, accepted-range, referential integrity, and duplicate checks against the final fact table
+7. **Orchestrate**: an Airflow DAG (`tourism_weather_pipeline`) runs extraction, load, and the full dbt project monthly
 
 ## ⟡ Data quality ⟡
 
 Six checks (matching the original Pentaho `data_quality.ktr` logic, reimplemented as dbt tests): not-null on visitor counts and temperature, valid ranges for occupancy rate (0–100%), temperature (15–45°C), and rainfall (non-negative), referential integrity against `dim_provinsi`, and a duplicate check on province-month combinations.
 
-## Setup
+## ▷ Setup ▷
 
 1. Create a BigQuery project with `raw` and `warehouse` datasets, and a service account with BigQuery Data Editor + Job User roles
 2. `pip install -r requirements.txt` (or set up the dbt project's own environment) and set `GOOGLE_APPLICATION_CREDENTIALS`
@@ -135,7 +135,12 @@ Six checks (matching the original Pentaho `data_quality.ktr` logic, reimplemente
 
 ## ⛶ Screenshots ⛶
 
+The tourism_weather_pipeline DAG runs monthly, orchestrating extraction, load, and the full dbt project (via Cosmos) as individually tracked tasks.
+
+<img src="docs/airflow_graph.png" width="500" alt="Airflow Graph Screenshot" />
+<img src="docs/airflow_overview.png" width="500" alt="Airflow Overview Screenshot" />
+
 
 ## Author
 
-Zafira Zein
+Zafira Zefina Zein
