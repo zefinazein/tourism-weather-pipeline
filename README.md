@@ -109,6 +109,7 @@ tourism-weather-pipeline/
 │           │   └── marts/         # dim_waktu, fact_kunjungan_pariwisata
 │           ├── seeds/             # dim_provinsi.csv, dim_kategori_cuaca.csv
 │           └── tests/             # assert_unique_province_month.sql
+├── docs/
 └── README.md
 ```
 
