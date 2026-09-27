@@ -136,6 +136,6 @@ Six checks (matching the original Pentaho `data_quality.ktr` logic, reimplemente
 ## ⛶ Screenshots ⛶
 
 
-## ⚙ Acknowledgment ⚙
+## Author
 
-Adapted from a group academic project (COSC6097) analyzing seasonal weather patterns and tourism demand across Indonesian provinces, originally built with Pentaho Data Integration and PostgreSQL.
+Zafira Zein
