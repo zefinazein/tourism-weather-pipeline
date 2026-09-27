@@ -34,7 +34,7 @@ This repository is an **individual, code-first reimplementation** of a group aca
 | Orchestration | Windows Task Scheduler | Airflow (Astro CLI + Cosmos) |
 
 ## 🖾 Architecture 🖾
-<img width="1109" height="407" alt="image" src="https://github.com/user-attachments/assets/48aa0904-be32-4e85-935c-9a02ce23d37a" />
+<img src="docs/data_architecture.svg" width="1109" alt="Pipeline architecture diagram" />
 
 ## ✰ Star schema ✰
 
