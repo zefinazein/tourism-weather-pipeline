@@ -23,7 +23,7 @@ for five provinces spanning four major island groups: **Bali, DI Yogyakarta, Nus
 
 ## 𖠋 An individual rebuild 𖠋
 
-This repository is an **individual, code-first reimplementation** of a group academic project ([tourism-weather-etl](https://github.com/zefinazein/tourism-weather-etl)) originally built with Pentaho Data Integration (GUI-based ETL) and PostgreSQL. The original version demonstrated the data engineering lifecycle through visual, low-code transformations; this rebuild demonstrates the same lifecycle using tooling more representative of current industry practice. Python for extraction, BigQuery as the cloud warehouse, dbt for SQL-based transformation and testing, and Airflow for orchestration.
+This repository is an **individual, code-first reimplementation** of a group project ([tourism-weather-etl](https://github.com/zefinazein/tourism-weather-etl)) originally built with Pentaho Data Integration (GUI-based ETL) and PostgreSQL. The original version demonstrated the data engineering lifecycle through visual, low-code transformations; this rebuild demonstrates the same lifecycle using tooling more representative of current industry practice. Python for extraction, BigQuery as the cloud warehouse, dbt for SQL-based transformation and testing, and Airflow for orchestration.
 
 | Layer | Original (group project) | This rebuild |
 |---|---|---|
